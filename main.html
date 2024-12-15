@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <style>
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #eaf4fc;
+}
+.navbar {
+  background-color: #002855;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffcc00; 
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+.navbar-nav .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffcc00;
+}
+.container {
+  padding: 50px 0;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #002855; 
+  text-align: center;
+  margin-bottom: 40px;
+}
+.card {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff;
+}
+
+.card.selected {
+  background-color: #e0f7fa; 
+  border: 3px solid #0288d1;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #0288d1;
+}
+
+.card-body {
+  padding: 25px;
+  text-align: center;
+}
+
+.card-body p {
+  color: #555;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.card-body a {
+  display: inline-block;
+  background-color: #0288d1; 
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.card-body a:hover {
+  background-color: #026aa7;
+}
+.course-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Modal */
+.modal-header {
+  background-color: #002855;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #002855; 
+  color: #ffcc00; 
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Institución Educativa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="conversacion.html">Chat</a></li>
+          <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="biblioteca.html">Biblioteca</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Salir</a></li>
+        </ul>
+        <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle ms-3" data-bs-toggle="modal" data-bs-target="#userModal" style="cursor: pointer;">
+      </div>
+    </div>
+  </nav>
+  <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="userModalLabel">Información del Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Nombre:</strong> Juan Pérez</p>
+          <p><strong>Correo:</strong> juan.perez@correo.com</p>
+          <p><strong>Rol:</strong> Estudiante</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Cursos Disponibles</h2>
+    <div class="row g-4 course-container">
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 1: Desarrollo Web</h5>
+            <p class="card-text">NRC: 12345</p>
+            <p class="card-text">Docente: Juan Pérez</p>
+            <a href="Desarrollo Web.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 2: Programación en Python</h5>
+            <p class="card-text">NRC: 54321</p>
+            <p class="card-text">Docente: Ana Gómez</p>
+            <a href="Programación en Python.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 3: Inteligencia Artificial</h5>
+            <p class="card-text">NRC: 67890</p>
+            <p class="card-text">Docente: Carlos López</p>
+            <a href="Inteligencia Artificial.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 4: Redes de Computadoras</h5>
+            <p class="card-text">NRC: 98765</p>
+            <p class="card-text">Docente: Laura Torres</p>
+            <a href="Redes de Computadoras.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 5: Seguridad Informática</h5>
+            <p class="card-text">NRC: 11223</p>
+            <p class="card-text">Docente: Pedro Ramírez</p>
+            <a href="Seguridad Informática.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card" onclick="toggleSelect(this)">
+          <div class="card-body">
+            <h5 class="card-title">Curso 6: Bases de Datos</h5>
+            <p class="card-text">NRC: 33445</p>
+            <p class="card-text">Docente: Luis Martínez</p>
+            <a href="Bases de Datos.html" class="btn btn-primary w-100">Ver Curso</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy; 2024 Institución Educativa. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function toggleSelect(card) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(function(cardElement) {
+        cardElement.classList.remove('selected');
+      });
+      card.classList.add('selected');
+    }
+  </script>
+
+  <script>
+    window.onload = function() {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      if (userData) {
+        document.querySelector('#userModalBody').innerHTML = `
+          <p><strong>Nombre:</strong> ${userData.name} ${userData.lastName}</p>
+          <p><strong>Correo:</strong> ${userData.email}</p>
+          <p><strong>Rol:</strong> Estudiante</p> <!-- Aquí puedes personalizar el rol según corresponda -->
+        `;
+      }
+    };
+  </script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>

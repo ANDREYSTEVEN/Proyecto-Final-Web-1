@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenidos a Aula Interactiva</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA5ZlsJkFEcHqz9gn2XZCff+pRzZ0VZyHrlvsmk56+S7BMXfH2AqXJpZ+gE9dX" crossorigin="anonymous">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74b9ff, #55efc4);
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .welcome-section {
+      text-align: center;
+      padding: 100px 0;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .welcome-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .welcome-section p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-top: 10px;
+      color: #7f8c8d;
+    }
+    .button-section {
+      padding: 70px 0;
+      background-color: #ffffff;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .button-section h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    .button-section p {
+      font-size: 1.1rem;
+      color: #7f8c8d;
+      margin-bottom: 40px;
+    }
+
+    .btn-custom {
+      font-size: 1.2rem;
+      padding: 15px 30px;
+      width: 240px;
+      margin: 15px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .btn-register {
+      background-color: #2980b9;
+      border-color: #2980b9;
+      color: white;
+    }
+
+    .btn-login {
+      background-color: #27ae60;
+      border-color: #27ae60;
+      color: white;
+    }
+
+    .btn-register:hover,
+    .btn-login:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      font-size: 1rem;
+      margin-top: auto; 
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .welcome-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .welcome-section p {
+        font-size: 1.1rem;
+      }
+
+      .btn-custom {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="welcome-section">
+    <h1>Aula Interactiva</h1>
+    <p>Una experiencia educativa personalizada para ti</p>
+  </div>
+
+  <div class="button-section">
+    <h2>Comienza tu experiencia educativa</h2>
+    <p>¡Únete a nuestra comunidad académica! Regístrate o inicia sesión.</p>
+    <div class="d-flex justify-content-center">
+      <a href="registro.php" class="btn btn-register btn-custom">Registrar</a>
+      <a href="consulta.php" class="btn btn-login btn-custom">Iniciar Sesión</a>
+    </div>
+  </div>
+  <footer>
+    <div>
+      <p>&copy; 2024 Aula Interactiva. Todos los derechos reservados.</p>
+      <p>Desarrollado por el equipo de Aula Interactiva</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybVymZgK4s4H4lAMg7zY0r6PFS4RokpWA4O5bBhGzFzAs4p6p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-cu3jrdgAeFwE9tZuH2v7N/fT/5Q2Y9m5JlHjle5DBrGIkZKOpAp6A8PqD5jmBhPR" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calificaciones</title>
+  <style>
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #eef3fc;
+  margin: 0;
+  padding: 0;
+  color: #2f3640;
+}
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.course-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid #1e81b0;
+}
+
+.course-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-left: 5px solid #165a8b;
+}
+
+.course-box h2 {
+  margin: 0;
+  font-size: 2em;
+  color: #1e81b0;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.course-box h2:hover {
+  color: #165a8b;
+}
+
+.course-box p {
+  font-size: 1.2em;
+  color: #4a4a4a;
+  margin: 5px 0;
+}
+
+.course-box .details {
+  font-size: 1em;
+  color: #6c7a89;
+  margin-top: 5px;
+}
+.tabs {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 12px 25px;
+  background-color: #d4e8fc;
+  margin-right: 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #1e81b0;
+  color: white;
+}
+
+.tab.active {
+  background-color: #1e81b0;
+  color: white;
+}
+.grades-content {
+  display: none;
+}
+
+.grades-content.active {
+  display: block;
+}
+.grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.grade-table th,
+.grade-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #d4e8fc;
+  transition: background-color 0.3s ease;
+}
+.grade-table th {
+  background-color: #1e81b0;
+  color: white;
+  font-size: 1.1em;
+}
+.grade-table td {
+  background-color: #f9f9f9;
+  font-size: 1em;
+}
+.grade-table td:hover {
+  background-color: #eef3fc;
+}
+.final-grade {
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 1.1em;
+}
+.percentage {
+  font-style: italic;
+  color: #6c7a89;
+}
+.tasks {
+  margin-top: 20px;
+}
+.tasks ul {
+  list-style-type: none;
+  padding: 0;
+}
+.tasks li {
+  background-color: #d4e8fc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+.tasks li:hover {
+  background-color: #1e81b0;
+  color: white;
+}
+
+.tasks li span {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.tasks li span:hover {
+  text-decoration: underline;
+}
+.footer {
+  background-color: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.menu-navegacion {
+    background-color: #f4f7fc;
+    border: 2px solid #004080;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    z-index: 1000; 
+    width: auto;
+}
+.menu-navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.menu-navegacion li {
+    margin: 0 10px;
+}
+.menu-navegacion a {
+    text-decoration: none;
+    color: #004080;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.menu-navegacion a:hover {
+    background-color: #004080;
+    color: white; 
+}
+</style>
+</head>
+<body>
+  <div class="menu-navegacion">
+    <ul>
+        <li><a href="main.html">Página Principal</a></li>
+        <li><a href="conversacion.html">Chat</a></li>
+        <li><a href="biblioteca.html">Biblioteca</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>Calificaciones de Cursos</h1>
+    <div class="tabs">
+      <div class="tab active" onclick="showTab('courses')">Cursos</div>
+      <div class="tab" onclick="showTab('grades')">Calificaciones</div>
+    </div>
+    <div id="courses" class="grades-content active">
+        <div class="course-box">
+          <h2>Desarrollo Web</h2>
+          <p class="details">NRC: 12345 | Docente: Juan Pérez</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Diseño de Página Web - Calificación: 85</li>
+              <li><span>Unidad 1:</span> Implementación de Formularios - Calificación: 90</li>
+              <li><span>Unidad 2:</span> Desarrollo de Funcionalidades - Calificación: 88</li>
+              <li><span>Unidad 3:</span> Optimización para Móviles - Calificación: 95</li>
+            </ul>
+          </div>
+        </div>
+        <div class="course-box">
+          <h2>Programación en Python</h2>
+          <p class="details">NRC: 54321 | Docente: Ana Gómez</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Introducción a Python - Calificación: 80</li>
+              <li><span>Unidad 1:</span> Estructuras de Datos Básicas - Calificación: 85</li>
+              <li><span>Unidad 2:</span> Manejo de Archivos en Python - Calificación: 90</li>
+              <li><span>Unidad 3:</span> Desarrollo de Proyecto Final - Calificación: 92</li>
+            </ul>
+          </div>
+        </div>
+        <div class="course-box">
+          <h2>Inteligencia Artificial</h2>
+          <p class="details">NRC: 67890 | Docente: Carlos López</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Algoritmos de Búsqueda - Calificación: 90</li>
+              <li><span>Unidad 1:</span> Introducción al Aprendizaje Automático - Calificación: 85</li>
+              <li><span>Unidad 2:</span> Redes Neuronales - Calificación: 92</li>
+              <li><span>Unidad 3:</span> Proyecto de IA - Calificación: 93</li>
+            </ul>
+          </div>
+        </div>
+        <div class="course-box">
+          <h2>Redes de Computadoras</h2>
+          <p class="details">NRC: 98765 | Docente: Laura Torres</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Configuración de Red Local - Calificación: 75</li>
+              <li><span>Unidad 1:</span> Seguridad en Redes - Calificación: 80</li>
+              <li><span>Unidad 2:</span> Protocolos de Comunicación - Calificación: 85</li>
+              <li><span>Unidad 3:</span> Gestión de Redes Empresariales - Calificación: 89</li>
+            </ul>
+          </div>
+        </div>
+        <div class="course-box">
+          <h2>Seguridad Informática</h2>
+          <p class="details">NRC: 11223 | Docente: Andrés Rivera</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Protección de Redes - Calificación: 88</li>
+              <li><span>Unidad 1:</span> Análisis de Vulnerabilidades - Calificación: 90</li>
+              <li><span>Unidad 2:</span> Cifrado de Datos - Calificación: 92</li>
+              <li><span>Unidad 3:</span> Respuesta ante Incidentes de Seguridad - Calificación: 95</li>
+            </ul>
+          </div>
+        </div>
+        <div class="course-box">
+          <h2>Bases de Datos</h2>
+          <p class="details">NRC: 44556 | Docente: María Rojas</p>
+          <div class="tasks">
+            <h3>Tareas por Unidad</h3>
+            <ul>
+              <li><span>Unidad 1:</span> Diseño de Esquema Relacional - Calificación: 85</li>
+              <li><span>Unidad 1:</span> Normalización de Bases de Datos - Calificación: 87</li>
+              <li><span>Unidad 2:</span> Consultas SQL - Calificación: 90</li>
+              <li><span>Unidad 3:</span> Optimización de Consultas - Calificación: 93</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    <div id="grades" class="grades-content">
+      <h2>Calificaciones Internas</h2>
+      <table class="grade-table">
+        <thead>
+          <tr>
+            <th>Curso</th>
+            <th>Calificación Final</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Desarrollo Web</td>
+            <td class="final-grade">89</td>
+            <td class="percentage">88%</td>
+          </tr>
+          <tr>
+            <td>Programación en Python</td>
+            <td class="final-grade">85</td>
+            <td class="percentage">86%</td>
+          </tr>
+          <tr>
+            <td>Inteligencia Artificial</td>
+            <td class="final-grade">92</td>
+            <td class="percentage">91%</td>
+          </tr>
+          <tr>
+            <td>Redes de Computadoras</td>
+            <td class="final-grade">80</td>
+            <td class="percentage">82%</td>
+          </tr>
+          <tr>
+            <td>Seguridad Informática</td>
+            <td class="final-grade">90</td>
+            <td class="percentage">90%</td>
+          </tr>
+          <tr>
+            <td>Bases de Datos</td>
+            <td class="final-grade">87</td>
+            <td class="percentage">88%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tabName) {
+      const tabs = document.querySelectorAll('.grades-content');
+      const tabButtons = document.querySelectorAll('.tab');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      const activeTabButton = Array.from(tabButtons).find(btn => btn.textContent.toLowerCase() === tabName);
+      activeTabButton.classList.add('active');
+    }
+  </script>
+  <footer class="footer">
+    <p>&copy; 2024 Institución Educativa. Todos los derechos reservados.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

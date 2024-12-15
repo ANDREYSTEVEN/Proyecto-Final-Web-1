@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Curso - Redes de Computadoras</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .navbar-nav .nav-link {
+            transition: color 0.3s, background-color 0.3s;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #004080; 
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #00274d;
+            background-color: #dce3f2;
+            border-radius: 5px;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #004080;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #00274d; 
+            border-radius: 8px; 
+        }
+        .nav-tabs .nav-link:hover {
+            background-color: #003366;
+            color: white;
+            border-radius: 8px;
+        }
+        .card {
+            background-color: #f4f7fc; 
+            border: 1px solid #dce3f2; 
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px); 
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+        }
+        .list-group-item {
+            font-size: 1rem;
+            color: #004080;
+            transition: background-color 0.3s, color 0.3s;
+            border: none;
+        }
+        
+        .list-group-item:hover {
+            background-color: #dce3f2; 
+            color: #00274d; 
+            font-weight: bold; 
+        }
+        .footer {
+            background-color: #00274d; 
+            color: #dce3f2; 
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.1);
+            font-size: 1rem;
+        }
+        .navbar .navbar-nav .nav-item img {
+            border-radius: 50%; 
+            border: 2px solid #004080; 
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+        .navbar .navbar-nav .nav-item img:hover {
+            transform: scale(1.15);
+            border: 2px solid #003366;
+        }
+            </style>
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Institución Educativa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="conversacion.html">Chat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="biblioteca.html">Biblioteca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="main.html">Menu</a></li>
+                </ul>
+                <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle ms-3" data-bs-toggle="modal" data-bs-target="#userModal" style="cursor: pointer;">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="fw-bold">Curso 4: Redes de Computadoras</h1>
+            <h2><strong>NRC:</strong> 98765</h2>
+            <h3><strong>Docente:</strong> Laura Torres</h3>
+        </div>
+        <ul class="nav nav-tabs my-4" id="cursoTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="inicio-tab" data-bs-toggle="tab" data-bs-target="#inicio" type="button" role="tab">Inicio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad1-tab" data-bs-toggle="tab" data-bs-target="#unidad1" type="button" role="tab">Unidad 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad2-tab" data-bs-toggle="tab" data-bs-target="#unidad2" type="button" role="tab">Unidad 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad3-tab" data-bs-toggle="tab" data-bs-target="#unidad3" type="button" role="tab">Unidad 3</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="cursoTabsContent">
+            <div class="tab-pane fade show active" id="inicio" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Generalidades del Curso</div>
+                    <div class="card-body">
+                        <div class="embed-responsive embed-responsive-16by9 mb-4">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                        </div>
+                        <h5 class="card-title">Actividades Iniciales</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Introducción a Redes de Computadoras:</strong> Fecha de Entrega: 10 Jul 2024 - 11:59 PM
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Estudio de Protocolos de Red:</strong> Fecha de Entrega: 15 Jul 2024 - 11:59 PM
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Laboratorio de Configuración de Red:</strong> Fecha de Entrega: 20 Jul 2024 - 11:59 PM
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad1" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 1: Fundamentos de Redes de Computadoras</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Introducción a las redes de computadoras</li>
+                            <li class="list-group-item">Modelo OSI y TCP/IP</li>
+                            <li class="list-group-item">Tipos de redes: LAN, WAN, MAN</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Investigación sobre el Modelo OSI - Fecha de Entrega: 17 Jul 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Configuración de una red LAN - Fecha de Entrega: 24 Jul 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad2" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 2: Protocolos y Configuración de Red</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Protocolos de comunicación (TCP, UDP)</li>
+                            <li class="list-group-item">Direcciones IP y Subnetting</li>
+                            <li class="list-group-item">Configuración de enrutadores y switches</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Análisis de protocolos TCP y UDP - Fecha de Entrega: 7 Ago 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Ejercicio de subnetting - Fecha de Entrega: 14 Ago 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad3" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 3: Seguridad en Redes</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Cifrado y seguridad de redes</li>
+                            <li class="list-group-item">Redes privadas virtuales (VPN)</li>
+                            <li class="list-group-item">Firewall y protección contra ataques</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Configuración de un Firewall - Fecha de Entrega: 21 Ago 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Implementación de VPN - Fecha de Entrega: 28 Ago 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">Perfil de Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nombre:</strong> Juan Pérez</p>
+                    <p><strong>Carrera:</strong> Ingeniería de Sistemas</p>
+                    <p><strong>Correo:</strong> juan.perez@institucion.edu</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Editar Perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© 2024 Institución Educativa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

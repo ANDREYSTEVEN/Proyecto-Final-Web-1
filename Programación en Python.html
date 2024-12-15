@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Curso - Programación en Python</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+.navbar-nav .nav-link {
+    transition: color 0.3s, background-color 0.3s;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #004080; 
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00274d;
+    background-color: #dce3f2;
+    border-radius: 5px;
+}
+.nav-tabs .nav-link.active {
+    background-color: #004080;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #00274d; 
+    border-radius: 8px; 
+}
+.nav-tabs .nav-link:hover {
+    background-color: #003366;
+    color: white;
+    border-radius: 8px;
+}
+.card {
+    background-color: #f4f7fc; 
+    border: 1px solid #dce3f2; 
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+}
+.list-group-item {
+    font-size: 1rem;
+    color: #004080;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+}
+
+.list-group-item:hover {
+    background-color: #dce3f2; 
+    color: #00274d; 
+    font-weight: bold; 
+}
+.footer {
+    background-color: #00274d; 
+    color: #dce3f2; 
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+.navbar .navbar-nav .nav-item img {
+    border-radius: 50%; 
+    border: 2px solid #004080; 
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+.navbar .navbar-nav .nav-item img:hover {
+    transform: scale(1.15);
+    border: 2px solid #003366;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Institución Educativa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="conversacion.html">Chat</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calificaciones.html">Calificaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="biblioteca.html">Biblioteca</a></li>
+                    <li class="nav-item"><a class="nav-link" href="main.html">Menu</a></li>
+                </ul>
+                <img src="https://via.placeholder.com/40" alt="Perfil" class="rounded-circle ms-3" data-bs-toggle="modal" data-bs-target="#userModal" style="cursor: pointer;">
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <div class="text-center">
+            <h1 class="fw-bold">Curso 2: Programación en Python</h1>
+            <h2><strong>NRC:</strong> 54321</h2>
+            <h3><strong>Docente:</strong> Ana Gómez</h3>
+        </div>
+        <ul class="nav nav-tabs my-4" id="cursoTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="inicio-tab" data-bs-toggle="tab" data-bs-target="#inicio" type="button" role="tab">Inicio</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad1-tab" data-bs-toggle="tab" data-bs-target="#unidad1" type="button" role="tab">Unidad 1</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad2-tab" data-bs-toggle="tab" data-bs-target="#unidad2" type="button" role="tab">Unidad 2</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="unidad3-tab" data-bs-toggle="tab" data-bs-target="#unidad3" type="button" role="tab">Unidad 3</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="cursoTabsContent">
+            <div class="tab-pane fade show active" id="inicio" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Generalidades del Curso</div>
+                    <div class="card-body">
+                        <div class="embed-responsive embed-responsive-16by9 mb-4">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+                        </div>
+                        <h5 class="card-title">Actividades Iniciales</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <strong>Actividades Iniciales:</strong> Fecha de Entrega: 5 Jul 2024 - 11:59 PM
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Compromiso de Aprendizaje:</strong> Fecha de Entrega: 15 Nov 2024 - 11:59 PM
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Asistencia:</strong> Fecha de Entrega: No Definida
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad1" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 1: Introducción a Python</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Introducción a la Programación en Python</li>
+                            <li class="list-group-item">Variables y Tipos de Datos</li>
+                            <li class="list-group-item">Operadores y Expresiones</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Escribir un programa de saludo - Fecha de Entrega: 12 Jul 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Crear una calculadora simple - Fecha de Entrega: 19 Jul 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad2" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 2: Estructuras de Control</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Condicionales en Python</li>
+                            <li class="list-group-item">Bucles y Ciclos</li>
+                            <li class="list-group-item">Funciones en Python</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Crear un programa de adivinanza con condiciones - Fecha de Entrega: 26 Jul 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Implementar un programa que calcule la factorial de un número - Fecha de Entrega: 2 Ago 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="unidad3" role="tabpanel">
+                <div class="card">
+                    <div class="card-header">Unidad 3: Manejo de Archivos y Excepciones</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Temas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Lectura y Escritura de Archivos</li>
+                            <li class="list-group-item">Manejo de Excepciones</li>
+                            <li class="list-group-item">Archivos CSV y JSON</li>
+                        </ul>
+                        <h5 class="card-title mt-4">Tareas de la Unidad</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Tarea 1:</strong> Crear un programa que lea y guarde datos en un archivo de texto - Fecha de Entrega: 9 Ago 2024</li>
+                            <li class="list-group-item"><strong>Tarea 2:</strong> Procesar datos en un archivo CSV - Fecha de Entrega: 16 Ago 2024</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="userModalLabel">Perfil de Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Nombre: Juan Pérez</p>
+                    <p>Rol: Estudiante</p>
+                    <p>Correo Electrónico: juan.perez@correo.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Institución Educativa</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

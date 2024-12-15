@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Virtual</title>
+  <style>body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    background-color: #eaf3ff;
+    color: #1a1a2e;
+  }
+  #sidebar {
+    width: 260px;
+    background-color: #27496d;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    position: fixed;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+  #sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #f5f5f5;
+    font-weight: bold;
+  }
+  #sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  #sidebar ul li {
+    margin: 15px 0;
+    padding: 12px;
+    background-color: #34699a;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #dbe9f4;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  }
+  
+  #sidebar ul li:hover {
+    background-color: #0f3460;
+    color: #ffffff;
+    transform: translateX(8px);
+  }
+  
+  #main-content {
+    margin-left: 260px;
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  #main-content h1 {
+    font-size: 2.8em;
+    color: #1a1a2e;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid #1a759f;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+  
+  #course-header {
+    padding: 15px;
+    background-color: #1a759f;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+    font-weight: bold;
+  }
+  #books-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+  .book {
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .book:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #e3f2fd;
+  }
+  .book img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .book h3 {
+    font-size: 1.3em;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .book p {
+    color: #4a5568;
+  }
+  .book a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .footer {
+    background-color: #003366;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .footer a {
+    color: #66c0f4;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .menu-navegacion {
+    background-color: #f4f7fc; 
+    border: 2px solid #004080;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    z-index: 1000;
+    width: auto;
+}
+
+.menu-navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.menu-navegacion li {
+    margin: 0 10px;
+}
+
+.menu-navegacion a {
+    text-decoration: none;
+    color: #004080; 
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+.menu-navegacion a:hover {
+    background-color: #004080; 
+    color: white; 
+}
+</style>
+</head>
+<body>
+  <div class="menu-navegacion">
+    <ul>
+        <li><a href="main.html">Página Principal</a></li>
+        <li><a href="calificaciones.html">Calificaciones</a></li>
+        <li><a href="conversacion.html">Chat</a></li>
+    </ul>
+</div>
+  <div id="sidebar">
+    <h2>Cursos Disponibles</h2>
+    <ul>
+      <li onclick="showBooks('Desarrollo Web')">Desarrollo Web</li>
+      <li onclick="showBooks('Programación en Python')">Programación en Python</li>
+      <li onclick="showBooks('Inteligencia Artificial')">Inteligencia Artificial</li>
+      <li onclick="showBooks('Redes de Computadoras')">Redes de Computadoras</li>
+      <li onclick="showBooks('Seguridad Informática')">Seguridad Informática</li>
+      <li onclick="showBooks('Bases de Datos')">Bases de Datos</li>
+    </ul>
+  </div>
+  <div id="main-content">
+    <h1>Biblioteca Virtual</h1>
+    <div id="course-header"></div>
+    <div id="books-list">
+    </div>
+  </div>
+
+  <script>
+    function showBooks(course) {
+      const books = {
+        'Desarrollo Web': [
+          { title: 'HTML & CSS para Principiantes', url: 'https://www.example.com/libro1', img: 'https://via.placeholder.com/200' },
+          { title: 'JavaScript: Guía Completa', url: 'https://www.example.com/libro2', img: 'https://via.placeholder.com/200' },
+          { title: 'Desarrollo Front-End', url: 'https://www.example.com/libro3', img: 'https://via.placeholder.com/200' },
+          { title: 'Node.js para Todos', url: 'https://www.example.com/libro4', img: 'https://via.placeholder.com/200' },
+          { title: 'Responsive Design: Diseño Adaptativo', url: 'https://www.example.com/libro5', img: 'https://via.placeholder.com/200' }
+        ],
+        'Programación en Python': [
+          { title: 'Python para Principiantes', url: 'https://www.example.com/libro6', img: 'https://via.placeholder.com/200' },
+          { title: 'Automatización con Python', url: 'https://www.example.com/libro7', img: 'https://via.placeholder.com/200' },
+          { title: 'Python y Análisis de Datos', url: 'https://www.example.com/libro8', img: 'https://via.placeholder.com/200' },
+          { title: 'Deep Learning con Python', url: 'https://www.example.com/libro9', img: 'https://via.placeholder.com/200' },
+          { title: 'Guía de Python Avanzado', url: 'https://www.example.com/libro10', img: 'https://via.placeholder.com/200' }
+        ],
+        'Inteligencia Artificial': [
+          { title: 'Fundamentos de IA', url: 'https://www.example.com/libro11', img: 'https://via.placeholder.com/200' },
+          { title: 'Machine Learning con Python', url: 'https://www.example.com/libro12', img: 'https://via.placeholder.com/200' },
+          { title: 'Redes Neuronales Artificiales', url: 'https://www.example.com/libro13', img: 'https://via.placeholder.com/200' },
+          { title: 'Introducción a la IA', url: 'https://www.example.com/libro14', img: 'https://via.placeholder.com/200' },
+          { title: 'IA en la Práctica', url: 'https://www.example.com/libro15', img: 'https://via.placeholder.com/200' }
+        ],
+        'Redes de Computadoras': [
+          { title: 'Fundamentos de Redes', url: 'https://www.example.com/libro16', img: 'https://via.placeholder.com/200' },
+          { title: 'TCP/IP y Redes', url: 'https://www.example.com/libro17', img: 'https://via.placeholder.com/200' },
+          { title: 'Seguridad en Redes', url: 'https://www.example.com/libro18', img: 'https://via.placeholder.com/200' },
+          { title: 'Protocolos de Comunicación', url: 'https://www.example.com/libro19', img: 'https://via.placeholder.com/200' },
+          { title: 'Redes Inalámbricas', url: 'https://www.example.com/libro20', img: 'https://via.placeholder.com/200' }
+        ],
+        'Seguridad Informática': [
+          { title: 'Seguridad en la Red', url: 'https://www.example.com/libro21', img: 'https://via.placeholder.com/200' },
+          { title: 'Criptografía y Seguridad', url: 'https://www.example.com/libro22', img: 'https://via.placeholder.com/200' },
+          { title: 'Hackers y Seguridad', url: 'https://www.example.com/libro23', img: 'https://via.placeholder.com/200' },
+          { title: 'Protección de Datos', url: 'https://www.example.com/libro24', img: 'https://via.placeholder.com/200' },
+          { title: 'Análisis de Vulnerabilidades', url: 'https://www.example.com/libro25', img: 'https://via.placeholder.com/200' }
+        ],
+        'Bases de Datos': [
+          { title: 'Introducción a las Bases de Datos', url: 'https://www.example.com/libro26', img: 'https://via.placeholder.com/200' },
+          { title: 'SQL para Todos', url: 'https://www.example.com/libro27', img: 'https://via.placeholder.com/200' },
+          { title: 'Administración de Bases de Datos', url: 'https://www.example.com/libro28', img: 'https://via.placeholder.com/200' },
+          { title: 'MongoDB y Bases de Datos NoSQL', url: 'https://www.example.com/libro29', img: 'https://via.placeholder.com/200' },
+          { title: 'Optimización de Consultas SQL', url: 'https://www.example.com/libro30', img: 'https://via.placeholder.com/200' }
+        ]
+      };
+      const booksDiv = document.getElementById('books-list');
+      const courseHeader = document.getElementById('course-header');
+      booksDiv.innerHTML = '';
+      courseHeader.innerHTML = `Libros de: ${course}`;
+      books[course].forEach(book => {
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book');
+        bookDiv.innerHTML = `
+          <a href="${book.url}" target="_blank">
+            <img src="${book.img}" alt="${book.title}">
+            <h3>${book.title}</h3>
+          </a>
+        `;
+        booksDiv.appendChild(bookDiv);
+      });
+    }
+    showBooks('Desarrollo Web');
+  </script>
+<footer class="footer">
+    <p>&copy; 2024 Institución Educativa. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
